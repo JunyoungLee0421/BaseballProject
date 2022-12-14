@@ -75,9 +75,16 @@ setup = function(){
         if (checklength(guess_num) && checkrepeat(guess_num)){
             inputnumberBtnHandler(guess_num)
         } else {
+            alert(`Number must be ${selected_type} digits and has no repeating digits`)
             console.log("Invalid input")
         }
     })
+    
+
+    $("#restartBtn").click(function() {
+        location.reload();
+    })
+
 }
 
 $(document).ready(setup);
