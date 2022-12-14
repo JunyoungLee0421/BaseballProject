@@ -1,3 +1,18 @@
+table, th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+th{
+    width: 25px;
+    text-align: center;
+}
+
+td{
+    width: 45px;
+    text-align: center;
+}
+
 .main_menu button{
     align-items: center;
     background-color: #FCFCFD;

@@ -36,7 +36,7 @@ inputnumberBtnHandler = function(guess_num) {
     if (strike == 0 && ball == 0){
         hint = 'OUT'
     } else {
-        hint = `${strike}S ${ball}B`
+        hint = `${strike}S${ball}B`
     }
 
     $("#result").append(`
