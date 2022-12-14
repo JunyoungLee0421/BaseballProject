@@ -1,5 +1,9 @@
-instructionbtnHandler = function(){
+instructionBtnHandler = function(){
     window.location.href="./instruction.html"
+}
+
+practiceBtnHandler = function(){
+    window.location.href="./practice.html"
 }
 
 setup = function(){
