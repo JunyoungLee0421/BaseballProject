@@ -81,8 +81,7 @@ td {
     width: 100px;
 }
 
-.openBtn:hover,
-.closeBtn:hover {
+.openBtn:hover{
     background-color: #f7fafa;
 }
 
@@ -95,6 +94,10 @@ td {
 
 .closeBtn {
     background-color: #E26868
+}
+
+.closeBtn:hover{
+    background-color: #df4242;
 }
 
 .memo_btn {
