@@ -1,4 +1,4 @@
-let counter = 0;
+let counter = 1;
 let generated_number;
 let selected_type;
 
@@ -53,7 +53,6 @@ undocheckNum = function(classNum){
 
 
 refreshMemo = function(){
-    console.log(selected_type)
     displayMemo(selected_type)
 }
 
@@ -78,6 +77,9 @@ inputnumberBtnHandler = function(guess_num) {
     
     if (strike == 0 && ball == 0){
         hint = 'OUT'
+    } else if (strike == generated_number.length){
+        hint = `${strike}S`
+        homerun()
     } else {
         hint = `${strike}S${ball}B`
     }
@@ -90,6 +92,12 @@ inputnumberBtnHandler = function(guess_num) {
         </tr>
     `)
     counter += 1
+}
+
+
+homerun = function(){
+    $("#gameend_modal_body").html(`<p>${counter}회에 성공`)
+    $("#staticBackdrop").modal('show');
 }
 
 
@@ -122,6 +130,11 @@ closeMemo = function(){
 }
 
 
+restart = function(){
+    location.reload();
+}
+
+
 setup = function(){
     selected_type = $("input[name='digitType']:checked").val();
     generated_number = setRandomNumber(3)
@@ -134,12 +147,6 @@ setup = function(){
             console.log("Invalid input")
         }
     })
-    
-
-    $("#restartBtn").click(function() {
-        location.reload();
-    })
-
 }
 
 $(document).ready(setup);
