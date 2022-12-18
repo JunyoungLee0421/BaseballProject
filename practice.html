@@ -23,6 +23,7 @@
         </script>
 
     <!-- Other libraries and styles of ours -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
@@ -42,6 +43,13 @@
     <label for="inputnumber">Input: </label>
     <input type="text" id="inputnumber" placeholder="Guess number" onfocus="this.value=''">
     <button id="inputnumberBtn">Submit</button>
+    <br>
+    <button class="openBtn" onclick="openMemo()">Memo</button>
+    <div style="display: none" class="memo-popup" id="popup">
+        <button class="closeBtn" onclick="closeMemo()">Close</button>
+        <p id='refresh-icon' class="material-icons" onclick="refreshMemo()">refresh</p>
+        <p id="memo_result"></p>
+    </div>
 
     <table>
         <tbody id="result">

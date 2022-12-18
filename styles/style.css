@@ -58,3 +58,78 @@ td{
 .navbar{
     background-color: #f1894d;
 }
+
+
+.openBtn, .closeBtn {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  color: #0f1111;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  width: 100px;
+}
+
+.openBtn:hover,
+.closeBtn:hover {
+  background-color: #f7fafa;
+}
+
+.openBtn:focus,
+.closeBtn:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+.closeBtn{
+    background-color: #E26868
+}
+
+.memo_btn{
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    color: #39739d;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 3px;
+    outline: none;
+    padding: 8px .8em;
+    text-align: center;
+}
+    
+.memo_btn:hover,
+.memo_btn:focus {
+  background-color: #eab3b3;
+  color: #772c2c;
+}
+
+.guessedNum_btn{
+    
+    background-color: #e1ecf4;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    padding: 8px .8em;
+    margin: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    outline: none;
+}
+
+#refresh-icon{
+    color:rgba(15, 12, 20, 0.658);
+    position: absolute;
+    margin-top: 3px;
+}
+
+#container{
+    display: flex;
+}

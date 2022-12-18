@@ -1,5 +1,6 @@
 let counter = 0;
 let generated_number;
+let selected_type;
 
 setRandomNumber = function(digit) {
 
@@ -11,9 +12,51 @@ setRandomNumber = function(digit) {
         generated_number = generated_number + numbers[temp];
         numbers.splice(Number(temp), 1);
     }
+    displayMemo(digit)
 
     return generated_number
 }
+
+
+displayMemo = function(digit){
+    $("#memo_result").empty()
+    var result = ""
+    var counter = 1 
+    result += "<br>"
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < digit; j ++){
+            result += `<button class="memo_btn" id="memo_${counter}" onclick="checkNum(${counter})">${i}</button>`
+            counter += 1
+        }
+        result += "<br>"
+    }
+    $("#memo_result").append(result)
+}
+
+
+checkNum = function(classNum){
+    $(`#memo_${classNum}`).css({'text-decoration-line': 'line-through', 'background-color': '#eab3b3', 'color': '#772c2c', 'border': '1px solid #c77a7a'})
+    $(`#memo_${classNum}`).attr('onclick', `greencheckNum(${classNum})`)
+}
+
+
+greencheckNum = function(classNum){
+    $(`#memo_${classNum}`).css({'text-decoration-line': 'none', 'background-color': '#e2f4e1', 'color': '#3c9d39', 'border': '1px solid #89c77a'})
+    $(`#memo_${classNum}`).attr('onclick', `undocheckNum(${classNum})`)
+}
+
+
+undocheckNum = function(classNum){
+    $(`#memo_${classNum}`).css({'text-decoration-line': 'none', 'background-color': '#e1ecf4', 'color': '#39739d', 'border': '1px solid #7aa7c7'})
+    $(`#memo_${classNum}`).attr('onclick', `checkNum(${classNum})`)
+}
+
+
+refreshMemo = function(){
+    console.log(selected_type)
+    displayMemo(selected_type)
+}
+
 
 inputnumberBtnHandler = function(guess_num) {
     console.log(generated_number)
@@ -65,6 +108,18 @@ $("#digitType_box").change(function() {
     generated_number = setRandomNumber(Number(selected_type))
     $("#result").empty()
 })
+
+
+openMemo = function(){
+    $("#popup").css('display', 'block')
+    $(".openBtn").css('display', 'none')
+    
+}
+
+closeMemo = function(){
+    $("#popup").css('display', 'none')
+    $(".openBtn").css('display', 'block')
+}
 
 
 setup = function(){
