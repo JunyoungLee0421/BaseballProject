@@ -33,16 +33,16 @@
     <form action="" name="createRoomform" id="createRoomform" style="width: 80%; margin: auto;">
         <div class="mb-3">
             <label for="roomName" class="form-label">Room Name</label>
-            <input class="form-control" id="roomName">
+            <input class="form-control" name="roomName" id="roomName">
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="digitType" id="digitType1">
+            <input class="form-check-input" type="radio" name="digitType" id="digitType1" value="3" checked>
             <label class="form-check-label" for="flexRadioDefault1">
               3 digits
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="digitType" id="digitType2" checked>
+            <input class="form-check-input" type="radio" name="digitType" id="digitType2" value="4">
             <label class="form-check-label" for="flexRadioDefault2">
               4 digits
             </label>
@@ -60,6 +60,6 @@
     <!---------------------------------------------->
     <script src="./script/firebaseAPI.js"></script>
     <script src="./script/skeleton.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./script/pvp_create_room.js"></script>
 </body>
 </html>

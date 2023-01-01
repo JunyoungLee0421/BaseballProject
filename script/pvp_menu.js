@@ -3,6 +3,14 @@ createRoomBtn = function(){
 }
 
 setup = function(){
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // do something
+            console.log(user.uid)
+        } else {
+            window.location.href = "./login.html"
+        }
+    })
     console.log("pvp_menu.js")
 }
 

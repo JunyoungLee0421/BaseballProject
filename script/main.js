@@ -1,5 +1,11 @@
 pvpBtnHandler = function(){
-    window.location.href="./pvp_menu.html"
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            window.location.href="./pvp_menu.html"
+        } else {
+            window.location.href = "./login.html"
+        }
+    })
 }
 
 instructionBtnHandler = function(){
