@@ -2,6 +2,10 @@ createRoomBtn = function(){
     window.location.href = "pvp_create_room.html"
 }
 
+reloadBtn = function(){
+    location.reload();
+}
+
 displayRoom = function(){
     db.collection("rooms")
         .get()
