@@ -21,6 +21,8 @@ checkusers = function(){
 }
 
 setup = function(){
+    $("#quit_game").removeAttr('href')
+    $("#quit_game").attr('onclick', 'quitRoom()')
     $("#quit_room").click(quitRoom)
     checkusers()
 }
