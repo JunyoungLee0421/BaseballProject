@@ -1,3 +1,7 @@
+pvpBtnHandler = function(){
+    window.location.href="./pvp_menu.html"
+}
+
 instructionBtnHandler = function(){
     window.location.href="./instruction.html"
 }
