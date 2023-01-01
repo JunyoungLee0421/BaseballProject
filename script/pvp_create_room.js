@@ -12,7 +12,7 @@ function createBtnHandler(){
             room_name: room_name,
             digit_type: digit_type,
         }).then(function (docRef) {
-            window.location.assign("pvp_matching.html");
+            window.location.assign("pvp_matching.html?id=" + docRef.id)
         }).catch(function (err){
             console.log("Error occurs: " + err);
         })
@@ -20,7 +20,6 @@ function createBtnHandler(){
         alert("Room name is required")
     }
 }
-
 
 
 function cancelBtnHandler(){

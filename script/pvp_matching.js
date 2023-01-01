@@ -1,5 +1,10 @@
 quitRoom = function(){
-    console.log("will be added")
+    let params = new URL(window.location.href);
+    let docid = params.searchParams.get("id");
+    console.log(docid)
+    db.collection("rooms").doc(docid).delete().then(() => {
+        window.location.assign("pvp_menu.html")
+    })
 }
 
 setup = function(){
