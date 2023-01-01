@@ -30,7 +30,28 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- body -->
-
+    <form action="" name="createRoomform" id="createRoomform" style="width: 80%; margin: auto;">
+        <div class="mb-3">
+            <label for="roomName" class="form-label">Room Name</label>
+            <input class="form-control" id="roomName">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="digitType" id="digitType1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              3 digits
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="digitType" id="digitType2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              4 digits
+            </label>
+          </div>
+    </form>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn" id="createBtn">Create</button>
+        <button type="submit" class="btn mx-2" id="cancelBtn">Cancel</button>
+    </div>
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
