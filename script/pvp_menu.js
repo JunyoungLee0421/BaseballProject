@@ -2,11 +2,36 @@ createRoomBtn = function(){
     window.location.href = "pvp_create_room.html"
 }
 
+displayRoom = function(){
+    db.collection("rooms")
+        .get()
+        .then((snap) => {
+            snap.forEach((doc) => {
+                var docid = doc.id;
+                var room_name = doc.data().room_name;
+                var digit_type = doc.data().digit_type;
+                let newcard = roomCardTemplate.content.cloneNode(true);
+                newcard.querySelector(".room-name").innerHTML = room_name
+                newcard.querySelector(".digit-type").innerHTML = `${digit_type} digit`
+                newcard.querySelector(".join-btn").setAttribute("docid", docid);
+                document.getElementById("rooms-go-here").appendChild(newcard);
+            })
+        })
+}
+
+$("body").on('click', '.join-btn', function() {
+    var docid = $(this).attr("docid");
+    setRoomdata(docid);
+})
+
+setRoomdata = function(id){
+    localStorage.setItem("roomID", id);
+}
+
 setup = function(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            // do something
-            console.log(user.uid)
+            displayRoom();
         } else {
             window.location.href = "./login.html"
         }

@@ -30,22 +30,9 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- body -->
-    <h1 class="text-center">Join a room</h1>
-    <button onclick="createRoomBtn()">Create</button>
-    
-    <div id="rooms-go-here">
-
-    </div>
-    <template id="roomCardTemplate">
-        <div class="card mx-auto my-2" style="width: 90%; height: 50px;">
-            <div class="card-body px-1 d-flex justify-content-between">
-                <p class="room-name">test</p>
-                <p class="digit-type">3 digit</p>
-                <button class="join-btn">Join</button>
-            </div>
-        </div>
-    </template>
-
+    <h1>You are waiting for other player ...</h1>
+    <div class="loader"></div>
+    <button id="quit_room">Quit</button>
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
@@ -55,6 +42,6 @@
     <script src="./script/firebaseAPI.js"></script>
     <script src="./script/skeleton.js"></script>
     <script src="./script/script.js"></script>
-    <script src="./script/pvp_menu.js"></script>
+    <script src="./script/pvp_matching.js"></script>
 </body>
 </html>

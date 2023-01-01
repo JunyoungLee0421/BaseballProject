@@ -13,7 +13,7 @@ var uiConfig = {
                     })
                     .then(function () {
                         console.log("New user added to firestore");
-                        window.location.assign("task.html");
+                        window.location.assign("menu.html");
                     })
                     .catch(function (err) {
                         console.log("Error adding new user: " + error);

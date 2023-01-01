@@ -1,10 +1,21 @@
+var currentUser;
+
 function createBtnHandler(){
     var form = document.forms.createRoomform;
     const room_name = form.querySelector("input[name=roomName]").value;
     const digit_type = form.querySelector("input[name=digitType]:checked").value;
+    
+    var roomRef = db.collection("rooms");
     if (room_name != ""){
-        console.log(room_name)
-        console.log(digit_type)
+        roomRef.add({
+            users: currentUser,
+            room_name: room_name,
+            digit_type: digit_type,
+        }).then(function (docRef) {
+            window.location.assign("pvp_matching.html");
+        }).catch(function (err){
+            console.log("Error occurs: " + err);
+        })
     } else {
         alert("Room name is required")
     }
@@ -19,7 +30,11 @@ function cancelBtnHandler(){
 
 
 setup = function(){
-    console.log("pvp_create_room.js")
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            currentUser = user.uid;
+        }
+    })
     $("#createBtn").click(createBtnHandler);
     $("#cancelBtn").click(cancelBtnHandler)
 }
