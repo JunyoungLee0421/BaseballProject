@@ -1,3 +1,5 @@
+var currentUser;
+
 createRoomBtn = function(){
     window.location.href = "pvp_create_room.html"
 }
@@ -26,6 +28,16 @@ displayRoom = function(){
 $("body").on('click', '.join-btn', function() {
     var docid = $(this).attr("docid");
     setRoomdata(docid);
+    db.collection("rooms").doc(docid).set(
+        {
+            users: firebase.firestore.FieldValue.arrayUnion(currentUser),
+        },
+        {
+            merge: true
+        }
+    ).then(() => {
+        window.location.assign("pvp_matching.html")
+    })
 })
 
 setRoomdata = function(id){
@@ -36,6 +48,8 @@ setup = function(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             displayRoom();
+            currentUser = user.uid
+            console.log(currentUser)
         } else {
             window.location.href = "./login.html"
         }

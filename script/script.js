@@ -2,7 +2,7 @@ logout = function(){
     const auth = firebase.auth();
     auth.signOut()
         .then(() => {
-            window.location.href="menu.html";
+            window.location.assign("main.html");
         })
         .catch((error) => {
             console.log("An error happened:" + error)
