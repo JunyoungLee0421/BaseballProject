@@ -27,7 +27,7 @@ displayRoom = function(){
 
 $("body").on('click', '.join-btn', function() {
     var docid = $(this).attr("docid");
-    setRoomdata(docid);
+    // setRoomdata(docid);
     db.collection("rooms").doc(docid).set(
         {
             users: firebase.firestore.FieldValue.arrayUnion(currentUser),
@@ -36,13 +36,13 @@ $("body").on('click', '.join-btn', function() {
             merge: true
         }
     ).then(() => {
-        window.location.assign("pvp_matching.html")
+        window.location.assign("pvp_matching.html?id=" + docid)
     })
 })
 
-setRoomdata = function(id){
-    localStorage.setItem("roomID", id);
-}
+// setRoomdata = function(id){
+//     localStorage.setItem("roomID", id);
+// }
 
 setup = function(){
     firebase.auth().onAuthStateChanged((user) => {
