@@ -31,12 +31,15 @@ setnumber = function(){
     console.log(digit_type)
     var inputNumber = $("#setnumber").val();
     if (checklength(inputNumber) && checkrepeat(inputNumber)){
-        db.collection("rooms").doc(docid).update({
-            [currentUser]: inputNumber
-        }).then(() => {
-            $("#setNumber").css('display', 'none')
-            $("#wrapper").css('display', 'block')
-        })
+        db.collection("rooms").doc(docid).collection("ingame")
+            .doc('initialNumbers')
+            .set({
+                initialNumbers: {
+                    [currentUser]: inputNumber,
+                }
+            }, {merge: true}).then(doc => {
+                window.location.assign('pvp.html?id=' + docid)
+            })
     } else {
         alert(`Number must be ${digit_type} digits and has no repeating digits`)
     }
